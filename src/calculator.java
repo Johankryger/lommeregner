@@ -20,7 +20,7 @@ class MyCalculator extends Frame
     String digitButtonText[] = {"7", "8", "9", "4", "5", "6", "1000", "2", "3", "0", "+/-", "." };
     String operatorButtonText[] = {"/", "sqrt", "*", "%", "-", "1/X", "+", "=" };
     String memoryButtonText[] = {"MC", "MR", "MS", "M+" };
-    String specialButtonText[] = {"Backspace", "C", "CE" };
+    String specialButtonText[] = {"Backspc", "C", "CE" };
 
     MyDigitButton digitButton[]=new MyDigitButton[digitButtonText.length];
     MyOperatorButton operatorButton[]=new MyOperatorButton[operatorButtonText.length];
@@ -192,7 +192,7 @@ class MyOperatorButton extends Button implements ActionListener
             {double tempd=1/(double)temp;
                 cl.displayLabel.setText(MyCalculator.getFormattedText(tempd));}
             catch(ArithmeticException excp)
-            {cl.displayLabel.setText("Divide by 0. Only gods like Max Thim can do that.");}
+            {cl.displayLabel.setText("Divide by 0.");}
             return;
         }
         if(opText.equals("sqrt"))
@@ -201,7 +201,7 @@ class MyOperatorButton extends Button implements ActionListener
             {double tempd=Math.sqrt(temp);
                 cl.displayLabel.setText(MyCalculator.getFormattedText(tempd));}
             catch(ArithmeticException excp)
-            {cl.displayLabel.setText("Divide by 0. Only gods like Max Thim can do that.");}
+            {cl.displayLabel.setText("Divide by 0.");}
             return;
         }
         if(!opText.equals("="))
@@ -305,7 +305,7 @@ class MySpecialButton extends Button implements ActionListener
     {
         String opText=((MySpecialButton)ev.getSource()).getLabel();
 //check for backspace button
-        if(opText.equals("Backspace"))
+        if(opText.equals("Backspc"))
         {
             String tempText=backSpace(cl.displayLabel.getText());
             if(tempText.equals(""))
